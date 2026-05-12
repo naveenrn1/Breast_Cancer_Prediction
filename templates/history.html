@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction History</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        h1{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td{
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th{
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even){
+            background: #f9f9f9;
+        }
+
+        .btn{
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            padding: 10px 20px;
+
+            background: #667eea;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <a href="/" class="btn">Back to Home</a>
+
+    <h1>Prediction History</h1>
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Radius Mean</th>
+
+            <th>Texture Mean</th>
+
+            <th>Perimeter Mean</th>
+
+            <th>Area Mean</th>
+
+            <th>Result</th>
+
+            <th>Confidence</th>
+
+            <th>Date</th>
+
+        </tr>
+
+        {% for prediction in predictions %}
+
+        <tr>
+
+            <td>{{ prediction.id }}</td>
+
+            <td>{{ prediction.radius_mean }}</td>
+
+            <td>{{ prediction.texture_mean }}</td>
+
+            <td>{{ prediction.perimeter_mean }}</td>
+
+            <td>{{ prediction.area_mean }}</td>
+
+            <td>{{ prediction.result }}</td>
+
+            <td>{{ prediction.confidence }}%</td>
+
+            <td>{{ prediction.created_at }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>
